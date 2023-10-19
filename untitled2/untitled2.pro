@@ -7,7 +7,8 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QT+= core gui charts
+QT+= core gui serialport sql
 TARGET = untitled2
 TEMPLATE = app
 
@@ -26,10 +27,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    SerialThread.cpp \
+    myserialport.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    SerialThread.h \
+    myserialport.h
 
 FORMS += \
         mainwindow.ui
