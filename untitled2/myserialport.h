@@ -1,0 +1,4 @@
+#ifndef MYSERIALPORT_H
+#define MYSERIALPORT_H
+
+#endif // MYSERIALPORT_H

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/prefix1">
+        <file>close.jpg</file>
+        <file>min.png</file>
+        <file>close.png</file>
+        <file>music.png</file>
+    </qresource>
+</RCC>
