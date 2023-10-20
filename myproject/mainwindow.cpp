@@ -22,7 +22,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QRandomGenerator generator;
     generator.seed(QDateTime::currentMSecsSinceEpoch());
     int randValue = QRandomGenerator::global()->bounded(0, 2);
-    qDebug()<<randValue;
     QString musicName = music[randValue];
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
