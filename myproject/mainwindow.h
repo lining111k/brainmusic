@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QtCharts>
+#include <QRandomGenerator>
+
 #include "SerialThread.h"
 #include "music.h"
 QT_BEGIN_NAMESPACE

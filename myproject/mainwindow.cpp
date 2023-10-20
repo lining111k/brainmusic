@@ -18,9 +18,16 @@ MainWindow::MainWindow(QWidget *parent) :
             serival.close();
         }
     }
+    QVector<QString> music{"bwm1.wav","tmedium"};
+    QRandomGenerator generator;
+    generator.seed(QDateTime::currentMSecsSinceEpoch());
+    int randValue = QRandomGenerator::global()->bounded(0, 2);
+    qDebug()<<randValue;
+    QString musicName = music[randValue];
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
-    QString musicFilePath = "F:/techFair/myproject/bwm1.wav";  // 这里改为你的文件路径
+    QString musicFilePath = QDir::currentPath() +"/music/"+ musicName;
+    ui->textEdit->append(musicFilePath);
     player->setMedia(QUrl::fromLocalFile(musicFilePath));
     serialThread = new SerialThread(this);
     connect(serialThread, &SerialThread::dataReceived, this, &MainWindow::handleData);
@@ -139,8 +146,8 @@ void MainWindow::updateChart()
 void MainWindow::handleData(const QByteArray &data)
 {
     // 在这里处理从串口读取的数据
-    QString hexStr = data.toHex(' ').toUpper();
-    ui->textEdit->append(hexStr);
+   // QString hexStr = data.toHex(' ').toUpper();
+   // ui->textEdit->append(hexStr);
 
     QByteArray EEGData = data.mid(12, 152);
     QByteArray batteryData = data.mid(164, 2);
